@@ -39,7 +39,7 @@ namespace ConsoleAppFOR
 
             for (int i = maxNumber; i >= minNumber; i--)
             {
-                Console.WriteLine(i);
+                Console.Write(i);
             }
         }
 
