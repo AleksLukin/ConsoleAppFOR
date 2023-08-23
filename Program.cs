@@ -16,6 +16,10 @@ namespace ConsoleAppFOR
             {
                 OneTaskApp();
             }
+            if (number==2)
+            {
+                SecondTaskApp();
+            }
             else
             {
                 Console.WriteLine("Число не введено!");
@@ -31,7 +35,7 @@ namespace ConsoleAppFOR
             Console.Write("Please, enter any number: ");
             int firstNumber = int.Parse(Console.ReadLine());
 
-            Console.WriteLine("Please, enter another number: ");
+            Console.Write("Please, enter another number: ");
             int secondNumber = int.Parse(Console.ReadLine());
 
             int maxNumber=Math.Max(firstNumber, secondNumber);
@@ -42,6 +46,29 @@ namespace ConsoleAppFOR
                 Console.Write(i);
             }
         }
+        ///<summary>
+        ///По данному числу n найдите те числа, где сумма цифр квадрата числа больше n. Гарантируется, что n меньше 1000.
+        /// </summary>
+        static void SecondTaskApp() 
+        {
+            Console.Write("Please, enter a number till 1000: ");
+            uint number = uint.Parse(Console.ReadLine());
 
-    }
+            if(number>=1000) 
+            {
+                Console.Write("There`s a number more or equal than thousand");
+            }
+
+            for (int i = 1; i < number; i++)
+            {
+                int square=Convert.ToInt32(Math.Pow(i,2));
+                int digitSum = square / 100 + square / 10 % 10 + square % 10;
+
+                if (digitSum > number)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+    }   
 }
