@@ -28,6 +28,10 @@ namespace ConsoleAppFOR
             {
                 FourTaskApp();
             }
+            if (number==5)
+            {
+                FiftTaskApp();
+            }
             else
             {
                 Console.WriteLine("Число не введено!");
@@ -114,6 +118,32 @@ namespace ConsoleAppFOR
                 }
             }
             Console.WriteLine("Количество делителей равно: " + count);
+        }
+        /// <summary>
+        /// Пользователь ввел n чисел. Найти сумму и количество отрицательных четных чисел.
+        /// </summary>
+        static void FiftTaskApp()
+        {
+            Console.Write("Please, enter a quantity numbers: ");
+            int quantityNumber = int.Parse(Console.ReadLine());
+
+            int count = 0;
+            int sum = 0;
+            for (int i = 1;i <= quantityNumber; i++)
+            {
+                Console.Write("Please, enter a quantity numbers: ");
+                int number = int.Parse(Console.ReadLine());
+
+                if (number < 0)
+                {
+                    count++;
+                    sum += number;
+                }
+            }
+            Console.Write("Количество отрицательных четных чисел равно: "+count);
+            Console.Write("Сумма отрицательных четных чисел равно: "+sum);
+
+
         }
     }
 }
