@@ -20,6 +20,10 @@ namespace ConsoleAppFOR
             {
                 SecondTaskApp();
             }
+            if (number==3)
+            {
+                ThridTaskApp();
+            }
             else
             {
                 Console.WriteLine("Число не введено!");
@@ -70,5 +74,22 @@ namespace ConsoleAppFOR
                 }
             }
         }
-    }   
+        ///<summary>
+        ///Найти сумму введенных пользователем десяти чисел.
+        /// </summary>
+        static void ThridTaskApp()
+        {
+            int sum = 0;
+            int number;
+
+            for (int i = 0; i <=11; i++)
+            {
+                Console.Write("Please, enter a number: ");
+                number = int.Parse(Console.ReadLine());
+
+                sum+=number;
+            }
+            Console.Write("Сумма 10 чисел равна: "+ sum);
+        }
+    }
 }
