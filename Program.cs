@@ -12,17 +12,21 @@ namespace ConsoleAppFOR
         {
             Console.Write("Please, type a number task: ");
             int number = int.Parse(Console.ReadLine());
-            if (number==1)
+            if (number == 1)
             {
                 OneTaskApp();
             }
-            if (number==2)
+            if (number == 2)
             {
                 SecondTaskApp();
             }
-            if (number==3)
+            if (number == 3)
             {
                 ThridTaskApp();
+            }
+            if (number == 4)
+            {
+                FourTaskApp();
             }
             else
             {
@@ -33,7 +37,7 @@ namespace ConsoleAppFOR
         ///<summary>
         ///Выведите обратную последовательность нечетных чисел на отрезке от a до b, где неизвестно какая переменная больше.
         ///</summary>
-        
+
         static void OneTaskApp()
         {
             Console.Write("Please, enter any number: ");
@@ -42,8 +46,8 @@ namespace ConsoleAppFOR
             Console.Write("Please, enter another number: ");
             int secondNumber = int.Parse(Console.ReadLine());
 
-            int maxNumber=Math.Max(firstNumber, secondNumber);
-            int minNumber=Math.Min(firstNumber, secondNumber);
+            int maxNumber = Math.Max(firstNumber, secondNumber);
+            int minNumber = Math.Min(firstNumber, secondNumber);
 
             for (int i = maxNumber; i >= minNumber; i--)
             {
@@ -53,19 +57,19 @@ namespace ConsoleAppFOR
         ///<summary>
         ///По данному числу n найдите те числа, где сумма цифр квадрата числа больше n. Гарантируется, что n меньше 1000.
         /// </summary>
-        static void SecondTaskApp() 
+        static void SecondTaskApp()
         {
             Console.Write("Please, enter a number till 1000: ");
             uint number = uint.Parse(Console.ReadLine());
 
-            if(number>=1000) 
+            if (number >= 1000)
             {
                 Console.Write("There`s a number more or equal than thousand");
             }
 
             for (int i = 1; i < number; i++)
             {
-                int square=Convert.ToInt32(Math.Pow(i,2));
+                int square = Convert.ToInt32(Math.Pow(i, 2));
                 int digitSum = square / 100 + square / 10 % 10 + square % 10;
 
                 if (digitSum > number)
@@ -82,14 +86,34 @@ namespace ConsoleAppFOR
             int sum = 0;
             int number;
 
-            for (int i = 0; i <=11; i++)
+            for (int i = 0; i <= 11; i++)
             {
                 Console.Write("Please, enter a number: ");
                 number = int.Parse(Console.ReadLine());
 
-                sum+=number;
+                sum += number;
             }
-            Console.Write("Сумма 10 чисел равна: "+ sum);
+            Console.Write("Сумма 10 чисел равна: " + sum);
+        }
+
+        /// <summary>
+        /// Выведите количество натуральных делителей целого числа x, исключая 1 и само число.
+        /// </summary>
+        static void FourTaskApp()
+        {
+            Console.Write("Please, enter a number: ");
+            int number = int.Parse(Console.ReadLine());
+
+            int count = 0;
+
+            for (int i = 1; i < number; i++)
+            {
+                if (number % i == 0 && i != 1)
+                {
+                    count++;
+                }
+            }
+            Console.WriteLine("Количество делителей равно: " + count);
         }
     }
 }
