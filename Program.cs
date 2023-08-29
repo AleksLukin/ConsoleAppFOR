@@ -140,8 +140,8 @@ namespace ConsoleAppFOR
                     sum += number;
                 }
             }
-            Console.Write("Количество отрицательных четных чисел равно: "+count);
-            Console.Write("Сумма отрицательных четных чисел равно: "+sum);
+            Console.Write("Количество отрицательных четных чисел равно: "+ count);
+            Console.Write("Сумма отрицательных четных чисел равно: "+ sum);
 
 
         }
