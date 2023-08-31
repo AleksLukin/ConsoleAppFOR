@@ -32,6 +32,10 @@ namespace ConsoleAppFOR
             {
                 FiftTaskApp();
             }
+            if (number == 6)
+            {
+                SixTaskApp();
+            }
             else
             {
                 Console.WriteLine("Число не введено!");
@@ -142,8 +146,23 @@ namespace ConsoleAppFOR
             }
             Console.Write("Количество отрицательных четных чисел равно: "+ count);
             Console.Write("Сумма отрицательных четных чисел равно: "+ sum);
+        }
+        /// <summary>
+        /// Вывести факториал числа n, где гарантируется, что n не больше 10.
+        /// </summary>
+        static void SixTaskApp()
+        {
+            Console.WriteLine("Введите число, факториал которого необходимо вычислить. ВНИМАНИЕ! Число должно быть не более 10!");
+            int number = int.Parse(Console.ReadLine());
 
+            int count = 1;
 
+            for (int i = 1; i <=number; i++)
+            {
+                count *= i;
+                
+            }
+            Console.Write("Факториал числа " + number + " равен: " + count);
         }
     }
 }
