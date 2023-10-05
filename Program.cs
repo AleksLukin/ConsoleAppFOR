@@ -6,44 +6,55 @@ namespace ConsoleAppFOR
     {
         static void Main(string[] args)
         {
-            Console.Write("Please, type a number task: ");
-            int number = int.Parse(Console.ReadLine());
-            if (number == 1)
-            {
-                OneTaskApp();
+            try
+            {            
+                Console.Write("Please, type a number task: ");
+                int number = int.Parse(Console.ReadLine());
+            
+
+                if (number == 1)
+                {
+                    OneTaskApp();
+                }
+                if (number == 2)
+                {
+                    SecondTaskApp();
+                }
+                if (number == 3)
+                {
+                    ThridTaskApp();
+                }
+                if (number == 4)
+                {
+                    FourTaskApp();
+                }
+                if (number == 5)
+                {
+                    FiftTaskApp();
+                }
+                if (number == 6)
+                {
+                    SixTaskApp();
+                }
+                if (number == 7)
+                {
+                    SevenTaskApp();
+                }
+                if (number == 8)
+                {
+                    EightAppTask();
+                }
+                if (number == 9)
+                {
+                    NineAppTask();
+                }
             }
-            if (number == 2)
+            catch (Exception)
             {
-                SecondTaskApp();
+                Console.WriteLine("Number of a task did not enter!");
+
             }
-            if (number == 3)
-            {
-                ThridTaskApp();
-            }
-            if (number == 4)
-            {
-                FourTaskApp();
-            }
-            if (number == 5)
-            {
-                FiftTaskApp();
-            }
-            if (number == 6)
-            {
-                SixTaskApp();
-            }
-            if (number == 7)
-            {
-                SevenTaskApp();
-            }
-            if (number==8)
-            {
-                EightAppTask();
-            }
-            else
-            {
-                Console.WriteLine("Число не введено!");
-            }
+
             Console.ReadLine();
         }
         ///<summary>
@@ -190,7 +201,6 @@ namespace ConsoleAppFOR
         ///  равным сумме своих положительных делителей, кроме самого этого числа.
         ///  Например, число 6 равно сумме своих собственных делителей: 1 + 2 + 3.
         /// </summary>
-
         static void EightAppTask()
         {
             int number = 28;
@@ -211,6 +221,24 @@ namespace ConsoleAppFOR
             {
                 Console.WriteLine(number + " -несовершенное число");
             }
+        }
+
+        /// <summary>
+        /// Дана непустая последовательность натуральных чисел, за которой следует 0. 
+        /// Вычислить сумму положительных элементов последовательности, порядковые номера которых нечетны.
+        /// </summary>
+        static void NineAppTask() 
+        {
+            int count = 0;
+            for (int i = 11; i <= 0; i--)
+            {
+                if (i % 2 == 0)
+                {
+                    count++;
+                }
+
+            }
+            Console.WriteLine(count);
         }
     }
 }
