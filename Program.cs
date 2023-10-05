@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ConsoleAppFOR
 {
@@ -28,7 +24,7 @@ namespace ConsoleAppFOR
             {
                 FourTaskApp();
             }
-            if (number==5)
+            if (number == 5)
             {
                 FiftTaskApp();
             }
@@ -39,6 +35,10 @@ namespace ConsoleAppFOR
             if (number == 7)
             {
                 SevenTaskApp();
+            }
+            if (number==8)
+            {
+                EightAppTask();
             }
             else
             {
@@ -136,7 +136,7 @@ namespace ConsoleAppFOR
 
             int count = 0;
             int sum = 0;
-            for (int i = 1;i <= quantityNumber; i++)
+            for (int i = 1; i <= quantityNumber; i++)
             {
                 Console.Write("Please, enter a quantity numbers: ");
                 int number = int.Parse(Console.ReadLine());
@@ -147,8 +147,8 @@ namespace ConsoleAppFOR
                     sum += number;
                 }
             }
-            Console.Write("Количество отрицательных четных чисел равно: "+ count);
-            Console.Write("Сумма отрицательных четных чисел равно: "+ sum);
+            Console.Write("Количество отрицательных четных чисел равно: " + count);
+            Console.Write("Сумма отрицательных четных чисел равно: " + sum);
         }
         /// <summary>
         /// Вывести факториал числа n, где гарантируется, что n не больше 10.
@@ -156,11 +156,11 @@ namespace ConsoleAppFOR
         static void SixTaskApp()
         {
             Console.WriteLine("Введите число, факториал которого необходимо вычислить. ВНИМАНИЕ! Число должно быть не более 10!");
-            int number = int.Parse(Console.ReadLine());
+            int number = 10;
 
             int count = 1;
 
-            for (int i = 1; i <=number; i++)
+            for (int i = 1; i <= number; i++)
             {
                 count *= i;
             }
@@ -168,19 +168,49 @@ namespace ConsoleAppFOR
         }
         ///<summary>
         /// Числа Фибоначчи(fn) определяется формулами: f0 = f1 = 1; fn = fn = fn-1 + fn-2 при n = 2, 3,... Составить программу определения f - 40-е число Фибоначчи
-        /// 1-1 2-1 3-2 4-3 5-5 6-8 7-13 8-21 9-34 10-55
+        /// 0-0 1-1 2-1 3-2 4-3 5-5 6-8 7-13 8-21 9-34 10-55 ... 40-102 334 155.00
         /// </summary>
         static void SevenTaskApp()
         {
-            int count = 0;
+            int prevNumber = 0;
             int fibonacchi = 0;
+            int i = 2;
 
-            for (int i = 0 ; i <= 3; i++ )
+            while (i <= 3)
             {
-                count += i;
-                fibonacchi += count;
+                prevNumber += fibonacchi;
+                fibonacchi = prevNumber;
+                i++;
+                Console.WriteLine(fibonacchi);
             }
-            Console.WriteLine(fibonacchi);
+
         }
-    } 
+        ///<summary>
+        ///. Составить программу, проверяющую, является ли заданное натуральное число совершенным, то есть
+        ///  равным сумме своих положительных делителей, кроме самого этого числа.
+        ///  Например, число 6 равно сумме своих собственных делителей: 1 + 2 + 3.
+        /// </summary>
+
+        static void EightAppTask()
+        {
+            int number = 28;
+            int sum = 0;
+
+            for (int i = 1; i < number; i++)
+            {
+                if (number % i == 0)
+                {
+                    sum += i;
+                }
+            }
+            if (sum == number)
+            {
+                Console.WriteLine(number + " -совершенное число");
+            }
+            else
+            {
+                Console.WriteLine(number + " -несовершенное число");
+            }
+        }
+    }
 }
