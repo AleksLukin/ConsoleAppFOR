@@ -10,7 +10,6 @@ namespace ConsoleAppFOR
             {            
                 Console.Write("Please, type a number task: ");
                 int number = int.Parse(Console.ReadLine());
-            
 
                 if (number == 1)
                 {
@@ -52,9 +51,7 @@ namespace ConsoleAppFOR
             catch (Exception)
             {
                 Console.WriteLine("Number of a task did not enter!");
-
             }
-
             Console.ReadLine();
         }
         ///<summary>
@@ -229,14 +226,10 @@ namespace ConsoleAppFOR
         /// </summary>
         static void NineAppTask() 
         {
-            int count = 0;
-            for (int i = 11; i <= 0; i--)
+            int count =0;
+            for (int i = 3; i > 0; i -= 2)
             {
-                if (i % 2 == 0)
-                {
-                    count++;
-                }
-
+                count += i;
             }
             Console.WriteLine(count);
         }
