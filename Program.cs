@@ -7,7 +7,7 @@ namespace ConsoleAppFOR
         static void Main(string[] args)
         {
             try
-            {            
+            {
                 Console.Write("Please, type a number task: ");
                 int number = int.Parse(Console.ReadLine());
 
@@ -46,6 +46,10 @@ namespace ConsoleAppFOR
                 if (number == 9)
                 {
                     NineAppTask();
+                }
+                if (number == 10)
+                {
+                    TenAppTask();
                 }
             }
             catch (Exception)
@@ -219,19 +223,51 @@ namespace ConsoleAppFOR
                 Console.WriteLine(number + " -несовершенное число");
             }
         }
-
         /// <summary>
         /// Дана непустая последовательность натуральных чисел, за которой следует 0. 
         /// Вычислить сумму положительных элементов последовательности, порядковые номера которых нечетны.
         /// </summary>
-        static void NineAppTask() 
+        static void NineAppTask()
         {
-            int count =0;
+            int count = 0;
             for (int i = 3; i > 0; i -= 2)
             {
                 count += i;
             }
             Console.WriteLine(count);
         }
+        /// <summary>
+        /// Составить программу, проверяющую, является ли заданное натуральное число палиндромом, то есть
+        /// таким, десятичная запись которого читается одинаково слева направо и справа налево.
+        /// </summary>
+        static void TenAppTask()
+        {
+            Console.Write("Введите число от 100 до 1000: ");
+            string n = Console.ReadLine();
+            bool expression = int.TryParse(n, out int result);
+
+            if (expression)
+            {
+                int firstNumber, secondNumber, thirdNumber;
+                firstNumber = result/100;
+                secondNumber = result/10;
+                secondNumber%=10;
+                thirdNumber = result%100;
+
+                if (firstNumber == thirdNumber)
+                {
+                    Console.Write(result + " -число является палиндромом");
+                }
+                else
+                {
+                    Console.Write(result + " -число неявляется палиндромом");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Число не введено!");
+            }
+        }
+
     }
 }
