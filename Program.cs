@@ -185,17 +185,18 @@ namespace ConsoleAppFOR
         static void SevenTaskApp()
         {
             int prevNumber = 0;
-            int fibonacchi = 0;
+            int fibonacchi = 2;
+            int nextNumber = 1;
             int i = 2;
 
-            while (i <= 3)
+            while (i <= 40)
             {
-                prevNumber += fibonacchi;
-                fibonacchi = prevNumber;
-                i++;
-                Console.WriteLine(fibonacchi);
+                fibonacchi = prevNumber + nextNumber;
+                prevNumber = nextNumber;
+                nextNumber = fibonacchi;
+                i++;                
             }
-
+            Console.Write("40 число Фибоначчи равно: "+fibonacchi);
         }
         ///<summary>
         ///. Составить программу, проверяющую, является ли заданное натуральное число совершенным, то есть
