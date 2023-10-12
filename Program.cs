@@ -51,6 +51,10 @@ namespace ConsoleAppFOR
                 {
                     TenAppTask();
                 }
+                if (number == 11)
+                {
+                    ElevenAppTask();
+                }
             }
             catch (Exception)
             {
@@ -194,9 +198,9 @@ namespace ConsoleAppFOR
                 fibonacchi = prevNumber + nextNumber;
                 prevNumber = nextNumber;
                 nextNumber = fibonacchi;
-                i++;                
+                i++;
             }
-            Console.Write("40 число Фибоначчи равно: "+fibonacchi);
+            Console.Write("40 число Фибоначчи равно: " + fibonacchi);
         }
         ///<summary>
         ///. Составить программу, проверяющую, является ли заданное натуральное число совершенным, то есть
@@ -250,10 +254,10 @@ namespace ConsoleAppFOR
             if (expression)
             {
                 int firstNumber, secondNumber, thirdNumber;
-                firstNumber = result/100;
-                secondNumber = result/10;
-                secondNumber%=10;
-                thirdNumber = result%100;
+                firstNumber = result / 100;
+                secondNumber = result / 10;
+                secondNumber %= 10;
+                thirdNumber = result % 100;
 
                 if (firstNumber == thirdNumber)
                 {
@@ -269,6 +273,37 @@ namespace ConsoleAppFOR
                 Console.WriteLine("Число не введено!");
             }
         }
+        /// <summary>
+        /// Числа Фибоначчи(fn) определяется формулами: f0= f1 = 1; fn = fn = fn-1 + fn-2 при n = 2, 3,... Составить
+        /// программу вычисления s - суммы всех чисел Фибоначчи, которые не превосходят 1000 
+        /// </summary>
+        static void ElevenAppTask()
+        {
+            int prevNumber = 0;
+            int nextNumber = 1;
+            int fibonacci = 2;
+            int i = 2;
+            while (i <= 20)
+            {
+                fibonacci = prevNumber + nextNumber;
+                prevNumber = nextNumber;
+                nextNumber = fibonacci;
+                i++;
 
+                if (fibonacci<1000)
+                {
+                    Console.WriteLine(fibonacci);
+                }
+
+            }
+            
+        }
     }
 }
+
+
+
+
+
+
+
