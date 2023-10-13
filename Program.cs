@@ -55,6 +55,10 @@ namespace ConsoleAppFOR
                 {
                     ElevenAppTask();
                 }
+                if (number == 12)
+                {
+                    TwelfeAppTak();
+                }
             }
             catch (Exception)
             {
@@ -297,6 +301,23 @@ namespace ConsoleAppFOR
 
             }
             
+        }
+        /// <summary>
+        /// Найти первую цифру числа.         
+        /// </summary>
+        static void TwelfeAppTak()
+        {
+            Console.Write("Введите число от 100 до 1000: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            int firstNumber, secondNumber, thirdNumber;
+
+            firstNumber = number / 100;
+            secondNumber = number / 10;
+            secondNumber%=10;
+            thirdNumber=number % 10;
+
+            Console.Write("Первое число равно: " + firstNumber);
         }
     }
 }
