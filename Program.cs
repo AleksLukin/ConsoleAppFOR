@@ -7,7 +7,7 @@ namespace ConsoleAppFOR
         static void Main(string[] args)
         {
             try
-            {            
+            {
                 Console.Write("Please, type a number task: ");
                 int number = int.Parse(Console.ReadLine());
 
@@ -46,6 +46,18 @@ namespace ConsoleAppFOR
                 if (number == 9)
                 {
                     NineAppTask();
+                }
+                if (number == 10)
+                {
+                    TenAppTask();
+                }
+                if (number == 11)
+                {
+                    ElevenAppTask();
+                }
+                if (number == 12)
+                {
+                    TwelfeAppTak();
                 }
             }
             catch (Exception)
@@ -181,17 +193,18 @@ namespace ConsoleAppFOR
         static void SevenTaskApp()
         {
             int prevNumber = 0;
-            int fibonacchi = 0;
+            int fibonacchi = 2;
+            int nextNumber = 1;
             int i = 2;
 
-            while (i <= 3)
+            while (i <= 40)
             {
-                prevNumber += fibonacchi;
-                fibonacchi = prevNumber;
+                fibonacchi = prevNumber + nextNumber;
+                prevNumber = nextNumber;
+                nextNumber = fibonacchi;
                 i++;
-                Console.WriteLine(fibonacchi);
             }
-
+            Console.Write("40 число Фибоначчи равно: " + fibonacchi);
         }
         ///<summary>
         ///. Составить программу, проверяющую, является ли заданное натуральное число совершенным, то есть
@@ -219,19 +232,99 @@ namespace ConsoleAppFOR
                 Console.WriteLine(number + " -несовершенное число");
             }
         }
-
         /// <summary>
         /// Дана непустая последовательность натуральных чисел, за которой следует 0. 
         /// Вычислить сумму положительных элементов последовательности, порядковые номера которых нечетны.
         /// </summary>
-        static void NineAppTask() 
+        static void NineAppTask()
         {
-            int count =0;
+            int count = 0;
             for (int i = 3; i > 0; i -= 2)
             {
                 count += i;
             }
             Console.WriteLine(count);
         }
+        /// <summary>
+        /// Составить программу, проверяющую, является ли заданное натуральное число палиндромом, то есть
+        /// таким, десятичная запись которого читается одинаково слева направо и справа налево.
+        /// </summary>
+        static void TenAppTask()
+        {
+            Console.Write("Введите число от 100 до 1000: ");
+            string n = Console.ReadLine();
+            bool expression = int.TryParse(n, out int result);
+
+            if (expression)
+            {
+                int firstNumber, secondNumber, thirdNumber;
+                firstNumber = result / 100;
+                secondNumber = result / 10;
+                secondNumber %= 10;
+                thirdNumber = result % 100;
+
+                if (firstNumber == thirdNumber)
+                {
+                    Console.Write(result + " -число является палиндромом");
+                }
+                else
+                {
+                    Console.Write(result + " -число неявляется палиндромом");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Число не введено!");
+            }
+        }
+        /// <summary>
+        /// Числа Фибоначчи(fn) определяется формулами: f0= f1 = 1; fn = fn = fn-1 + fn-2 при n = 2, 3,... Составить
+        /// программу вычисления s - суммы всех чисел Фибоначчи, которые не превосходят 1000 
+        /// </summary>
+        static void ElevenAppTask()
+        {
+            int prevNumber = 0;
+            int nextNumber = 1;
+            int fibonacci = 2;
+            int i = 2;
+            while (i <= 20)
+            {
+                fibonacci = prevNumber + nextNumber;
+                prevNumber = nextNumber;
+                nextNumber = fibonacci;
+                i++;
+
+                if (fibonacci<1000)
+                {
+                    Console.WriteLine(fibonacci);
+                }
+
+            }
+            
+        }
+        /// <summary>
+        /// Найти первую цифру числа.         
+        /// </summary>
+        static void TwelfeAppTak()
+        {
+            Console.Write("Введите число от 100 до 1000: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            int firstNumber, secondNumber, thirdNumber;
+
+            firstNumber = number / 100;
+            secondNumber = number / 10;
+            secondNumber%=10;
+            thirdNumber=number % 10;
+
+            Console.Write("Первое число равно: " + firstNumber);
+        }
     }
 }
+
+
+
+
+
+
+
