@@ -189,10 +189,7 @@ namespace ConsoleAppFOR
             }
             Console.Write("Факториал числа " + number + " равен: " + count);
         }
-        ///<summary>
-        /// Числа Фибоначчи(fn) определяется формулами: f0 = f1 = 1; fn = fn = fn-1 + fn-2 при n = 2, 3,... Составить программу определения f - 40-е число Фибоначчи
-        /// 0-0 1-1 2-1 3-2 4-3 5-5 6-8 7-13 8-21 9-34 10-55 ... 40-102 334 155.00
-        /// </summary>
+
         static void SevenTaskApp()
         {
             int prevNumber = 0;
@@ -290,20 +287,23 @@ namespace ConsoleAppFOR
             int nextNumber = 1;
             int fibonacci = 2;
             int i = 2;
+            int sumFibonacci = 1;
+
+
             while (i <= 20)
             {
                 fibonacci = prevNumber + nextNumber;
                 prevNumber = nextNumber;
                 nextNumber = fibonacci;
                 i++;
+                sumFibonacci += fibonacci;
 
-                if (fibonacci<1000)
+                if (sumFibonacci<1000)
                 {
-                    Console.WriteLine(fibonacci);
+                    Console.WriteLine(sumFibonacci); 
                 }
-
-            }
-            
+                               
+            }            
         }
         /// <summary>
         /// Найти первую цифру числа.         
