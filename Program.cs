@@ -7,7 +7,7 @@ namespace ConsoleAppFOR
         static void Main(string[] args)
         {
             try
-            {            
+            {
                 Console.Write("Please, type a number task: ");
                 int number = int.Parse(Console.ReadLine());
 
@@ -47,6 +47,22 @@ namespace ConsoleAppFOR
                 {
                     NineAppTask();
                 }
+                if (number == 10)
+                {
+                    TenAppTask();
+                }
+                if (number == 11)
+                {
+                    ElevenAppTask();
+                }
+                if (number == 12)
+                {
+                    TwelfeAppTak();
+                }
+                if (number == 13)
+                {
+                    ThirdTenAppTask();
+                }
             }
             catch (Exception)
             {
@@ -57,7 +73,6 @@ namespace ConsoleAppFOR
         ///<summary>
         ///Выведите обратную последовательность нечетных чисел на отрезке от a до b, где неизвестно какая переменная больше.
         ///</summary>
-
         static void OneTaskApp()
         {
             Console.Write("Please, enter any number: ");
@@ -174,24 +189,22 @@ namespace ConsoleAppFOR
             }
             Console.Write("Факториал числа " + number + " равен: " + count);
         }
-        ///<summary>
-        /// Числа Фибоначчи(fn) определяется формулами: f0 = f1 = 1; fn = fn = fn-1 + fn-2 при n = 2, 3,... Составить программу определения f - 40-е число Фибоначчи
-        /// 0-0 1-1 2-1 3-2 4-3 5-5 6-8 7-13 8-21 9-34 10-55 ... 40-102 334 155.00
-        /// </summary>
+
         static void SevenTaskApp()
         {
             int prevNumber = 0;
-            int fibonacchi = 0;
+            int fibonacchi = 2;
+            int nextNumber = 1;
             int i = 2;
 
-            while (i <= 3)
+            while (i <= 40)
             {
-                prevNumber += fibonacchi;
-                fibonacchi = prevNumber;
+                fibonacchi = prevNumber + nextNumber;
+                prevNumber = nextNumber;
+                nextNumber = fibonacchi;
                 i++;
-                Console.WriteLine(fibonacchi);
             }
-
+            Console.Write("40 число Фибоначчи равно: " + fibonacchi);
         }
         ///<summary>
         ///. Составить программу, проверяющую, является ли заданное натуральное число совершенным, то есть
@@ -219,19 +232,118 @@ namespace ConsoleAppFOR
                 Console.WriteLine(number + " -несовершенное число");
             }
         }
-
         /// <summary>
         /// Дана непустая последовательность натуральных чисел, за которой следует 0. 
         /// Вычислить сумму положительных элементов последовательности, порядковые номера которых нечетны.
         /// </summary>
-        static void NineAppTask() 
+        static void NineAppTask()
         {
-            int count =0;
+            int count = 0;
             for (int i = 3; i > 0; i -= 2)
             {
                 count += i;
             }
             Console.WriteLine(count);
         }
+        /// <summary>
+        /// Составить программу, проверяющую, является ли заданное натуральное число палиндромом, то есть
+        /// таким, десятичная запись которого читается одинаково слева направо и справа налево.
+        /// </summary>
+        static void TenAppTask()
+        {
+            Console.Write("Введите число от 100 до 1000: ");
+            string n = Console.ReadLine();
+            bool expression = int.TryParse(n, out int result);
+
+            if (expression)
+            {
+                int firstNumber, secondNumber, thirdNumber;
+                firstNumber = result / 100;
+                secondNumber = result / 10;
+                secondNumber %= 10;
+                thirdNumber = result % 100;
+
+                if (firstNumber == thirdNumber)
+                {
+                    Console.Write(result + " -число является палиндромом");
+                }
+                else
+                {
+                    Console.Write(result + " -число неявляется палиндромом");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Число не введено!");
+            }
+        }
+        /// <summary>
+        /// Числа Фибоначчи(fn) определяется формулами: f0= f1 = 1; fn = fn = fn-1 + fn-2 при n = 2, 3,... Составить
+        /// программу вычисления s - суммы всех чисел Фибоначчи, которые не превосходят 1000 
+        /// </summary>
+        static void ElevenAppTask()
+        {
+            int prevNumber = 0;
+            int nextNumber = 1;
+            int fibonacci = 2;
+            int sumFibonacci = 1;
+
+
+            while (sumFibonacci < 900)
+            {
+                fibonacci = prevNumber + nextNumber;
+                prevNumber = nextNumber;
+                nextNumber = fibonacci;
+                sumFibonacci += fibonacci;
+            }
+            Console.WriteLine("Сумма всех чисел Фибоначчи, которые не превосходят 1000, равны: {0}", sumFibonacci);            
+        }
+        /// <summary>
+        /// Найти первую цифру числа.         
+        /// </summary>
+        static void TwelfeAppTak()
+        {
+            Console.Write("Введите число от 100 до 1000: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            int firstNumber, secondNumber, thirdNumber;
+
+            firstNumber = number / 100;
+            secondNumber = number / 10;
+            secondNumber%=10;
+            thirdNumber=number % 10;
+
+            Console.Write("Первое число равно: " + firstNumber);
+        }
+        /// <summary>
+        /// Подсчитать сумму квадратов первых нечетных чисел меньших заданного Z.
+        /// </summary>
+        static void ThirdTenAppTask()
+        {
+            Console.Write("Зададим число z: ");
+            string s=Console.ReadLine();
+            bool number = int.TryParse(s, out int result);
+            double sum = 0;
+
+            if (number)
+            {
+                for (int i = 1; i < result; i+=2)
+                {
+                    sum += Math.Pow(i, 2);
+                }
+                Console.Write("Сумма квадратов нечетных чисел, меньших {0} равна {1}",result,sum);
+            }
+            else
+            {
+                Console.WriteLine("Число не введено!");
+            }
+        }
     }
 }
+
+
+
+
+
+
+
