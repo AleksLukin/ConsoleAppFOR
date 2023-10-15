@@ -286,24 +286,17 @@ namespace ConsoleAppFOR
             int prevNumber = 0;
             int nextNumber = 1;
             int fibonacci = 2;
-            int i = 2;
             int sumFibonacci = 1;
 
 
-            while (i <= 20)
+            while (sumFibonacci < 900)
             {
                 fibonacci = prevNumber + nextNumber;
                 prevNumber = nextNumber;
                 nextNumber = fibonacci;
-                i++;
                 sumFibonacci += fibonacci;
-
-                if (sumFibonacci<1000)
-                {
-                    Console.WriteLine(sumFibonacci); 
-                }
-                               
-            }            
+            }
+            Console.WriteLine("Сумма всех чисел Фибоначчи, которые не превосходят 1000, равны: {0}", sumFibonacci);            
         }
         /// <summary>
         /// Найти первую цифру числа.         
