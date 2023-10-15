@@ -59,6 +59,10 @@ namespace ConsoleAppFOR
                 {
                     TwelfeAppTak();
                 }
+                if (number == 13)
+                {
+                    ThirdTenAppTask();
+                }
             }
             catch (Exception)
             {
@@ -69,7 +73,6 @@ namespace ConsoleAppFOR
         ///<summary>
         ///Выведите обратную последовательность нечетных чисел на отрезке от a до b, где неизвестно какая переменная больше.
         ///</summary>
-
         static void OneTaskApp()
         {
             Console.Write("Please, enter any number: ");
@@ -318,6 +321,29 @@ namespace ConsoleAppFOR
             thirdNumber=number % 10;
 
             Console.Write("Первое число равно: " + firstNumber);
+        }
+        /// <summary>
+        /// Подсчитать сумму квадратов первых нечетных чисел меньших заданного Z.
+        /// </summary>
+        static void ThirdTenAppTask()
+        {
+            Console.Write("Зададим число z: ");
+            string s=Console.ReadLine();
+            bool number = int.TryParse(s, out int result);
+            double sum = 0;
+
+            if (number)
+            {
+                for (int i = 1; i < result; i+=2)
+                {
+                    sum += Math.Pow(i, 2);
+                }
+                Console.Write("Сумма квадратов нечетных чисел, меньших {0} равна {1}",result,sum);
+            }
+            else
+            {
+                Console.WriteLine("Число не введено!");
+            }
         }
     }
 }
